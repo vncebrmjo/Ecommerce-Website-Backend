@@ -23,6 +23,17 @@ bld/
 [Ll]og/
 [Ll]ogs/
 
+# Visual Studio files
+.vs/
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# User-specific files
+*.rsuser
+*.userprefs
+
 # .NET Core
 project.lock.json
 project.fragment.lock.json
@@ -52,3 +63,14 @@ CodeCoverage/
 *.VisualState.xml
 TestResult.xml
 nunit-*.xml
+
+# Database files
+*.mdf
+*.ldf
+
+# Connection strings (if sensitive)
+appsettings.Development.json
+appsettings.Production.json
+
+# Logs
+*.log
