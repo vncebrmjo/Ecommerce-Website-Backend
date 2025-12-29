@@ -44,6 +44,7 @@ ScaffoldingReadMe.txt
 
 # NuGet Packages
 *.nupkg
+
 # NuGet Symbol Packages
 *.snupkg
 
@@ -68,12 +69,12 @@ nunit-*.xml
 *.mdf
 *.ldf
 
-# Connection strings (if sensitive)
-appsettings.Development.json
-appsettings.Production.json
+# SECRETS
+secrets.json
+**/secrets.json
+appsettings.Development.json  
 
 # User Secrets
-secrets.json
 **/Properties/launchSettings.json
 
 # Logs
