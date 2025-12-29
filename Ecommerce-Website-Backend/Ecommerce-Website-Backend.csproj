@@ -1,10 +1,11 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
 
   <PropertyGroup>
     <TargetFramework>net10.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
     <RootNamespace>Ecommerce_Website_Backend</RootNamespace>
+    <UserSecretsId>9ae04112-39b4-4665-b1f7-c483fa897253</UserSecretsId>
   </PropertyGroup>
 
   <ItemGroup>

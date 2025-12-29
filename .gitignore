@@ -72,5 +72,9 @@ nunit-*.xml
 appsettings.Development.json
 appsettings.Production.json
 
+# User Secrets
+secrets.json
+**/Properties/launchSettings.json
+
 # Logs
 *.log
