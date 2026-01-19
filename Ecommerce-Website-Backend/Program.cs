@@ -1,4 +1,12 @@
+using Ecommerce_Website_Backend.Configuration;
+
+
 var builder = WebApplication.CreateBuilder(args);
+
+var corsOptions = builder.Configuration
+    .GetSection(CorsOptions.SectionName)
+    .Get<CorsOptions>()
+    ?? throw new InvalidOperationException("Cors configuration is missing.");
 
 builder.Configuration.AddJsonFile("secrets.json", optional: true, reloadOnChange: true);
 builder.Services.AddControllers();
@@ -6,14 +14,14 @@ builder.Services.AddEndpointsApiExplorer();
 
 builder.Services.AddCors(options =>
 {
-    options.AddPolicy("AngularApp",
-        policy =>
-        {
-            policy.WithOrigins("http://localhost:4200") // Angular Port
-                  .AllowAnyHeader()
-                  .AllowAnyMethod()
-                  .AllowCredentials();
-        });
+    options.AddPolicy(corsOptions.PolicyName, policy =>
+    {
+        policy.WithOrigins(corsOptions.AllowedOrigins)
+            .AllowAnyMethod()
+            .AllowAnyHeader()
+            .AllowCredentials()
+            .SetIsOriginAllowedToAllowWildcardSubdomains();
+    });
 });
 
 var app = builder.Build();
@@ -26,7 +34,7 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
-app.UseCors("AngularApp");
+app.UseCors(corsOptions.PolicyName);
 
 app.UseAuthorization();
 
