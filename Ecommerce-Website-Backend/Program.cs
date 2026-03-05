@@ -1,5 +1,6 @@
 using Ecommerce_Website_Backend.Configuration;
-
+using Ecommerce_Website_Backend.Data;
+using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -7,6 +8,10 @@ var corsOptions = builder.Configuration
     .GetSection(CorsOptions.SectionName)
     .Get<CorsOptions>()
     ?? throw new InvalidOperationException("Cors configuration is missing.");
+
+builder.Services.AddDbContext<AppDbContext>(opt =>
+    opt.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection")));
+
 
 builder.Configuration.AddJsonFile("secrets.json", optional: true, reloadOnChange: true);
 builder.Services.AddControllers();
