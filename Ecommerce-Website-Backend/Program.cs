@@ -1,6 +1,8 @@
 using Ecommerce_Website_Backend.Configuration;
 using Ecommerce_Website_Backend.Data;
+using Ecommerce_Website_Backend.Services;
 using Microsoft.EntityFrameworkCore;
+
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -16,6 +18,9 @@ builder.Services.AddDbContext<AppDbContext>(opt =>
 builder.Configuration.AddJsonFile("secrets.json", optional: true, reloadOnChange: true);
 builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddValidation();
+builder.Services.AddScoped<ProductCategoryService>();
+
 
 builder.Services.AddCors(options =>
 {
