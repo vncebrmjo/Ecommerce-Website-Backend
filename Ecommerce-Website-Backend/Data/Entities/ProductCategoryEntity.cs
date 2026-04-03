@@ -4,7 +4,7 @@
     {
         public string ProductCategoryName { get; set; } = string.Empty;
 
-        public string ProductDescription { get; set; } = string.Empty;
+        public string ProductCategoryDescription { get; set; } = string.Empty;
 
         
 
