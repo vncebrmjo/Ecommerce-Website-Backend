@@ -82,3 +82,8 @@ appsettings.Development.json
 
 # libman.json
 libman.json
+
+# SQLite database files
+*.db
+*.db-shm
+*.db-wal
