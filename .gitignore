@@ -79,3 +79,6 @@ appsettings.Development.json
 
 # Logs
 *.log
+
+# libman.json
+libman.json
