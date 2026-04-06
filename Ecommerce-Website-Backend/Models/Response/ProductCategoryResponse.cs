@@ -2,18 +2,14 @@
 
 namespace Ecommerce_Website_Backend.Models.Response
 {
-    public class ProductCategoryResponse
+    public record ProductCategoryResponse(
+    int Id,
+    string ProductCategoryName,
+    string ProductCategoryDescription)
+    
     {
-        public int Id { get; set; }
-        public string ProductCategoryName { get; set; } = string.Empty;
-        public string ProductCategoryDescription { get; set; } = string.Empty;
-
-        // Maps entity to response — keeps raw entity out of the API
-        public static ProductCategoryResponse FromEntity(ProductCategoryEntity entity) => new()
-        {
-            Id = entity.Id,
-            ProductCategoryName = entity.ProductCategoryName,
-            ProductCategoryDescription = entity.ProductCategoryDescription
-        };
+        // Maps Entity to response - keeps raw entity out of the API
+        public static ProductCategoryResponse FromEntity(ProductCategoryEntity entity) =>
+            new(entity.Id, entity.ProductCategoryName, entity.ProductCategoryDescription);
     }
 }
