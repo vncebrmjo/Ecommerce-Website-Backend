@@ -34,6 +34,7 @@ if (app.Environment.IsDevelopment())
 var corsOptions = app.Services.GetRequiredService<CorsOptions>();
 app.UseExceptionHandler();
 app.UseHttpsRedirection();
+app.UseCors(corsOptions.PolicyName);
 app.UseAuthorization();
 app.MapControllers();
 
