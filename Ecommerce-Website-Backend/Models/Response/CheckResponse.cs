@@ -1,4 +1,4 @@
-﻿namespace Ecommerce_Website_Backend.Models
+﻿namespace Ecommerce_Website_Backend.Models.Response
 {
     public sealed class CheckResponse
     {

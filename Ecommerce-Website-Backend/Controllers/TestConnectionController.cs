@@ -1,4 +1,4 @@
-﻿using Ecommerce_Website_Backend.Models;
+﻿using Ecommerce_Website_Backend.Models.Response;
 using Microsoft.AspNetCore.Mvc;
 using System.Reflection;
 
