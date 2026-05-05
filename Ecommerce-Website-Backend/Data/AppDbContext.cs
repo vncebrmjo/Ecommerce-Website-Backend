@@ -45,8 +45,8 @@ namespace Ecommerce_Website_Backend.Data
                 {
                     EntityName = entry.Entity.GetType().Name,
                     EntityId = entry.Properties
-                                   .FirstOrDefault(p => p.Metadata.IsPrimaryKey())
-                                   ?.CurrentValue?.ToString() ?? string.Empty,
+                                .FirstOrDefault(p => p.Metadata.IsPrimaryKey())
+                                ?.CurrentValue?.ToString() ?? string.Empty,
                     Action = entry.State switch
                     {
                         EntityState.Added => "Created",
@@ -55,17 +55,17 @@ namespace Ecommerce_Website_Backend.Data
                         _ => "Unknown"
                     },
                     OldValues = entry.State == EntityState.Modified
-                                   ? JsonSerializer.Serialize(
-                                       entry.Properties.ToDictionary(
-                                           p => p.Metadata.Name,
-                                           p => p.OriginalValue))
-                                   : null,
+                                ? JsonSerializer.Serialize(
+                                    entry.Properties.ToDictionary(
+                                        p => p.Metadata.Name,
+                                        p => p.OriginalValue))
+                                : null,
                     NewValues = entry.State != EntityState.Deleted
-                                   ? JsonSerializer.Serialize(
-                                       entry.Properties.ToDictionary(
-                                           p => p.Metadata.Name,
-                                           p => p.CurrentValue))
-                                   : null,
+                                ? JsonSerializer.Serialize(
+                                    entry.Properties.ToDictionary(
+                                        p => p.Metadata.Name,
+                                        p => p.CurrentValue))
+                                : null,
                     ChangedBy = null, // fill once auth is implemented
                     ChangedAt = DateTime.UtcNow
                 });
