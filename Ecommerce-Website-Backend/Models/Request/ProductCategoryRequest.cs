@@ -7,7 +7,7 @@ namespace Ecommerce_Website_Backend.Models.Request
     {
         [Required(ErrorMessage = "Category name is required")]
         [MaxLength(ValidationConstants.ProductCategory.ProductCategoryNameMaxLength,
-            ErrorMessage = "Category name cannot exceed 15 characters")]
+            ErrorMessage = "Category name cannot exceed 20 characters")]
         public string ProductCategoryName { get; set; } = string.Empty;
 
         [MaxLength(ValidationConstants.ProductCategory.ProductCategoryDescriptionMaxLength,

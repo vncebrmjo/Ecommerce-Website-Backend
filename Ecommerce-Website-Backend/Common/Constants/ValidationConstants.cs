@@ -4,7 +4,7 @@
     {
         public static class ProductCategory
         {
-            public const int ProductCategoryNameMaxLength = 15;
+            public const int ProductCategoryNameMaxLength = 20;
             public const int ProductCategoryDescriptionMaxLength = 50;
         }
 
