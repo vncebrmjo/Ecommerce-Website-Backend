@@ -1,11 +1,13 @@
 ﻿using Ecommerce_Website_Backend.Models.Request;
 using Ecommerce_Website_Backend.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Ecommerce_Website_Backend.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
+    [Authorize(Policy = "AdminOnly")]
     public class ProductCategoryController(ProductCategoryService service) : ControllerBase
     {
         // GET api/productcategory

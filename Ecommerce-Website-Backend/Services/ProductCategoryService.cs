@@ -8,7 +8,7 @@ namespace Ecommerce_Website_Backend.Services
 {
     public class ProductCategoryService(AppDbContext db)
     {
-        // GET all categories
+        // Get all categories
         public async Task<List<ProductCategoryResponse>> GetAllAsync()
         {
             return await db.ProductCategories
@@ -16,7 +16,7 @@ namespace Ecommerce_Website_Backend.Services
                 .ToListAsync();
         }
 
-        // GET single category by Id
+        // Get single category by Id
         public async Task<ProductCategoryResponse> GetByIdAsync(int id)
         {
             var category = await db.ProductCategories.FindAsync(id)
@@ -25,7 +25,7 @@ namespace Ecommerce_Website_Backend.Services
             return ProductCategoryResponse.FromEntity(category);
         }
 
-        // POST — create new category
+        // Create new category
         public async Task<ProductCategoryResponse> CreateAsync(ProductCategoryRequest request)
         {
             // Business rule — no duplicate category names
@@ -47,7 +47,7 @@ namespace Ecommerce_Website_Backend.Services
             return ProductCategoryResponse.FromEntity(category);
         }
 
-        // PUT — update existing category
+        // Update existing category
         public async Task<ProductCategoryResponse> UpdateAsync(int id, ProductCategoryRequest request)
         {
             var category = await db.ProductCategories.FindAsync(id)
@@ -71,7 +71,7 @@ namespace Ecommerce_Website_Backend.Services
             return ProductCategoryResponse.FromEntity(category);
         }
 
-        // DELETE — permanently removes the category
+        // Delete category
         public async Task DeleteAsync(int id)
         {
             var category = await db.ProductCategories.FindAsync(id)
