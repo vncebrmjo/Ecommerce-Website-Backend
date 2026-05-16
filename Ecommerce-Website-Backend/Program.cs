@@ -7,6 +7,7 @@ using Ecommerce_Website_Backend.Services;
 using Ecommerce_Website_Backend.Services.AuthService;
 using Microsoft.EntityFrameworkCore;
 
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Database
@@ -25,6 +26,7 @@ builder.Services.AddScoped<ProductCategoryService>();
 builder.Services.AddScoped<LoginService>();
 builder.Services.AddScoped<RegisterService>();
 builder.Services.AddScoped<LogoutService>();
+builder.Services.AddScoped<UserManagementService>();
 
 // Helpers
 builder.Services.AddScoped<JwtHelper>();
@@ -42,6 +44,8 @@ builder.Services.Configure<JwtSettings>(
     builder.Configuration.GetSection("JwtSettings"));
 
 var app = builder.Build();
+
+await app.CreateSuperAdminAsync();
 
 if (app.Environment.IsDevelopment())
     app.MapOpenApi();

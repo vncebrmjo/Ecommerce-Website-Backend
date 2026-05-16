@@ -39,8 +39,11 @@ namespace Ecommerce_Website_Backend.Extensions
                 });
 
             services.AddAuthorizationBuilder()
+                .AddPolicy("SuperAdminOnly", p => p.RequireRole(UserRoles.SuperAdmin))
                 .AddPolicy("AdminOnly", p => p.RequireRole(UserRoles.Admin))
+                .AddPolicy("SuperOrAdmin", p => p.RequireRole(UserRoles.SuperAdmin, UserRoles.Admin))
                 .AddPolicy("CustomerOnly", p => p.RequireRole(UserRoles.Customer))
+                .AddPolicy("MerchantOnly", p => p.RequireRole(UserRoles.Merchant))
                 .AddPolicy("AnyUser", p => p.RequireAuthenticatedUser());
 
             return services;

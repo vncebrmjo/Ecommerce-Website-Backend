@@ -11,6 +11,5 @@ namespace Ecommerce_Website_Backend.Data.Entities
         public string PasswordHash { get; set; } = string.Empty;
         public string Role { get; set; } = UserRoles.Customer;
         public bool IsActive { get; set; } = true;
-
     }
 }

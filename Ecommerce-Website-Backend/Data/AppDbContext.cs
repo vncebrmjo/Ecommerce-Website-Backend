@@ -25,51 +25,7 @@ namespace Ecommerce_Website_Backend.Data
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
-            // ProductCategoryName must be unique — no duplicate category names
-            builder.Entity<ProductCategoryEntity>()
-                .HasIndex(c => c.ProductCategoryName)
-                .IsUnique();
-
-            // ValidationConstants
-            builder.Entity<ProductCategoryEntity>()
-                .Property(c => c.ProductCategoryName)
-                .HasMaxLength(ValidationConstants.ProductCategory.ProductCategoryNameMaxLength);
-
-            builder.Entity<ProductCategoryEntity>()
-                .Property(c => c.ProductCategoryDescription)
-                .HasMaxLength(ValidationConstants.ProductCategory.ProductCategoryDescriptionMaxLength);
-
-            builder.Entity<UserEntity>()
-                .HasIndex(u => u.UserName)
-                .IsUnique();
-
-            builder.Entity<UserEntity>()
-                .HasIndex(u => u.Email)
-                .IsUnique();
-
-            builder.Entity<UserEntity>()
-                .Property(u => u.UserName)
-                .HasMaxLength(ValidationConstants.User.UserNameMaxLength);
-
-            builder.Entity<UserEntity>()
-                .Property(u => u.Email)
-                .HasMaxLength(ValidationConstants.User.EmailMaxLength);
-
-            builder.Entity<UserEntity>()
-                .Property(u => u.FirstName)
-                .HasMaxLength(ValidationConstants.User.FirstNameMaxLength);
-
-            builder.Entity<UserEntity>()
-                .Property(u => u.LastName)
-                .HasMaxLength(ValidationConstants.User.LastNameMaxLength);
-
-            builder.Entity<UserEntity>()
-                .Property(u => u.Role)
-                .HasMaxLength(20);
-
-            builder.Entity<TokenBlacklistEntity>()
-                .HasIndex(t => t.SessionToken)
-                .IsUnique();
+            builder.ApplyConfigurationsFromAssembly(typeof(AppDbContext).Assembly);
         }
 
         public override async Task<int> SaveChangesAsync(CancellationToken ct = default)
