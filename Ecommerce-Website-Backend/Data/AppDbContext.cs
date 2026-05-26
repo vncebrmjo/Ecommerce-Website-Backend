@@ -9,7 +9,7 @@ namespace Ecommerce_Website_Backend.Data
 {
     public class AppDbContext(DbContextOptions<AppDbContext> options, IHttpContextAccessor httpContextAccessor) : DbContext(options)
     {
-        //My Database Tables
+        
         public DbSet<ProductCategoryEntity> ProductCategories => Set<ProductCategoryEntity>();
         public DbSet<AuditLogsEntity> AuditLogs => Set<AuditLogsEntity>();
         public DbSet<UserEntity> Users => Set<UserEntity>();

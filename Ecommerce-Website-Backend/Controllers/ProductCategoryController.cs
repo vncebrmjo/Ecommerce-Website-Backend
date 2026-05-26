@@ -7,7 +7,7 @@ namespace Ecommerce_Website_Backend.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
-    [Authorize(Policy = "AdminOnly")]
+    
     public class ProductCategoryController(ProductCategoryService service) : ControllerBase
     {
         // GET api/productcategory
@@ -28,6 +28,7 @@ namespace Ecommerce_Website_Backend.Controllers
 
         // POST api/productcategory
         [HttpPost]
+        [Authorize(Policy = "SuperOrAdmin")]
         public async Task<IActionResult> Create([FromBody] ProductCategoryRequest request)
         {
             var category = await service.CreateAsync(request);
@@ -36,6 +37,7 @@ namespace Ecommerce_Website_Backend.Controllers
 
         // PUT api/productcategory/1
         [HttpPut("{id:int}")]
+        [Authorize(Policy = "SuperOrAdmin")]
         public async Task<IActionResult> Update(int id, [FromBody] ProductCategoryRequest request)
         {
             var category = await service.UpdateAsync(id, request);
@@ -44,6 +46,7 @@ namespace Ecommerce_Website_Backend.Controllers
 
         // DELETE api/productcategory/1
         [HttpDelete("{id:int}")]
+        [Authorize(Policy = "SuperOrAdmin")]
         public async Task<IActionResult> Delete(int id)
         {
             await service.DeleteAsync(id);
