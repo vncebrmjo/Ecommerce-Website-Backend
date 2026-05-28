@@ -19,7 +19,7 @@ namespace Ecommerce_Website_Backend.Data
         private string? CurrentUser =>
             httpContextAccessor.HttpContext?.User.FindFirst(JwtRegisteredClaimNames.Sub) is { } sub
                 ? httpContextAccessor.HttpContext?.User.FindFirst("userName")?.Value
-                  ?? sub.Value  // fallback to user Id if username claim not found
+                    ?? sub.Value  // fallback to user Id if username claim not found
                 : null;
 
 
