@@ -24,7 +24,7 @@ namespace Ecommerce_Website_Backend.Extensions
             {
                 db.Users.Add(new UserEntity
                 {
-                    FirstName = "SuperAdmin FirstName",
+                    FirstName = "SuperAdmin Firstname",
                     LastName = "SuperAdmin LastName",
                     Email = email,
                     UserName = userName,
