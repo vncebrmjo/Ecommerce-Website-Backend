@@ -15,6 +15,7 @@ namespace Ecommerce_Website_Backend.Middleware
             {
                 KeyNotFoundException => (StatusCodes.Status404NotFound, "Not Found"),
                 InvalidOperationException => (StatusCodes.Status409Conflict, "Conflict"),
+                UnauthorizedAccessException => (StatusCodes.Status401Unauthorized, "Unauthorized"),
                 _ => (StatusCodes.Status500InternalServerError, "Internal Server Error")
             };
 

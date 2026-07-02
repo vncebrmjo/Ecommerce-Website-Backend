@@ -7,8 +7,6 @@
         public string Action { get; set; } = string.Empty;      
         public string? OldValues { get; set; }                  
         public string? NewValues { get; set; }  
-        
-        // To be implemented when the login is finished
         public string? ChangedBy { get; set; }            
         public DateTime ChangedAt { get; set; } = DateTime.UtcNow;
 
