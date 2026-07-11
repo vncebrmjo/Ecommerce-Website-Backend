@@ -13,7 +13,12 @@
             Merchant, 
             SuperAdmin
         ];
+
+        // Roles allowed to write to the product catalog.
+        // Ownership checks (which Merchant owns which product) happen in ProductService, not here.
+        public const string ProductManagement = $"{Merchant},{Admin},{SuperAdmin}";
     }
+
 
     
 }
