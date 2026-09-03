@@ -16,6 +16,14 @@
             public const int FirstNameMaxLength = 50;
             public const int LastNameMaxLength = 50;
         }
+        public static class Product
+        {
+            public const int ProductNameMaxLength = 100;
+            public const int ProductDescriptionMaxLength = 500;
+            public const int SkuMaxLength = 50;
+            public const double PriceMin = 0.01;
+            public const double PriceMax = 1_000_000;
+        }
 
 
     }

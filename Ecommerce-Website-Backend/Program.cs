@@ -27,6 +27,7 @@ builder.Services.AddScoped<LoginService>();
 builder.Services.AddScoped<RegisterService>();
 builder.Services.AddScoped<LogoutService>();
 builder.Services.AddScoped<UserManagementService>();
+builder.Services.AddScoped<ProductService>();
 
 // Helpers
 builder.Services.AddScoped<JwtHelper>();

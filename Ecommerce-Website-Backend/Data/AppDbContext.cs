@@ -16,6 +16,8 @@ namespace Ecommerce_Website_Backend.Data
 
         public DbSet<TokenBlacklistEntity> TokenBlacklist => Set<TokenBlacklistEntity>();
 
+        public DbSet<ProductEntity> Products => Set<ProductEntity>();
+
         private string? CurrentUser =>
             httpContextAccessor.HttpContext?.User.FindFirst(JwtRegisteredClaimNames.Sub) is { } sub
                 ? httpContextAccessor.HttpContext?.User.FindFirst("userName")?.Value
