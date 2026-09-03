@@ -87,3 +87,5 @@ libman.json
 *.db
 *.db-shm
 *.db-wal
+
+Migrations/
